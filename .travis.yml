@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - lts/*
+sudo: false
+before_install:
+  - sudo apt-get update
+cache:
+  yarn: true
+  directories:
+    - node_modules
+branches:
+  except:
+    - prod
+script:
+  - yarn test
+after_success:
+  - ./deploy.sh
